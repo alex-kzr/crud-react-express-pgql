@@ -12,3 +12,5 @@ GRANT ALL PRIVILEGES ON DATABASE users_db TO users_db_admin;
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO users_db_admin;
 GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO users_db_admin;
 \i <file-path>/staging.sql
+
+npm i --save body-parser
