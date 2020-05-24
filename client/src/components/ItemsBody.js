@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import ItemsList from './ItemsList';
+import ItemListElement from './ItemListElement';
 
 class ItemsBody extends Component {
     render(){
         return(
             <ItemsList>
-                <div>--ListItem</div>
+                <ItemListElement text={'Item list atlast!'} />
             </ItemsList>
         );
     }    
