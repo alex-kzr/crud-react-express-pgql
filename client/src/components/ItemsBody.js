@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ItemsList from './ItemsList';
 import ItemListElement from './ItemListElement';
 import axios from 'axios';
+import _ from 'lodash';
 
 class ItemsBody extends Component {
     constructor(props){

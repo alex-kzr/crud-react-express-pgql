@@ -21,3 +21,5 @@ npm i --save-dev concurrently
 npm i -save http-proxy-middleware // run in client directory
 
 npm i --save axios
+
+npm i --save lodash
