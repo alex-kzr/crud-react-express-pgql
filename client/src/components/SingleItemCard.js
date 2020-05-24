@@ -23,7 +23,7 @@ class SingleItemCard extends Component {
         const {fullName, phone} = this.state;
         if(this.state.editing){
             return(
-                <EditItem />
+                <EditItem fullName = {fullName} phone={phone} />
             );
         }
         return(
