@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
+import ItemsList from './ItemsList';
 
 class ItemsBody extends Component {
     render(){
         return(
-            <div>ListItems
+            <ItemsList>
                 <div>--ListItem</div>
-                ListItems
-            </div>
+            </ItemsList>
         );
     }    
 }
