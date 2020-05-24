@@ -26,4 +26,13 @@ router.patch('/:id', function(req, res){
     });
 });
 
+router.put('/:id', function(req, res){
+    db('users').where({ id: req.params.id }).update({
+        full_name: req.body.full_name || null,
+        phone: req.body.phone || null
+    }).returning('*').then(function(data){
+        res.send(data);
+    });    
+});
+
 module.exports = router; 
