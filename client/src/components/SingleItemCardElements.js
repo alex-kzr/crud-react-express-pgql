@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SingleItemCardElements = ({fullName, phone}) => {
+const SingleItemCardElements = ({fullName, phone, onEdit}) => {
     return(
         <div className={'card bg-light'}>
             <div className="card-block">
@@ -12,7 +12,7 @@ const SingleItemCardElements = ({fullName, phone}) => {
                 </div>
                 <div className="d-flex justify-content-start ilign-items-end mt-5">
                     <button className="btn btn-outline-danger mr-4">Delete</button>
-                    <button className="btn btn-outline-dark" >Edit</button>
+                    <button className="btn btn-outline-dark" onClick={onEdit}>Edit</button>
                 </div>
             </div>
         </div>

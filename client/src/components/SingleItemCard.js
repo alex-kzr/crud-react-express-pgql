@@ -9,6 +9,13 @@ class SingleItemCard extends Component {
             fullName: props.fullName,
             phone: props.phone
         };
+        this.onEdit = this.onEdit.bind(this);
+    }
+
+    onEdit(){
+        this.setState({
+            editing: !this.state.editing
+        });
     }
 
     render(){
@@ -19,7 +26,7 @@ class SingleItemCard extends Component {
             );
         }
         return(
-            <SingleItemCardElements fullName={fullName} phone={phone} />
+            <SingleItemCardElements fullName={fullName} phone={phone} onEdit={this.onEdit}/>
         );
     }
 }
