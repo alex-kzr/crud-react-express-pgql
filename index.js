@@ -1,9 +1,14 @@
 const express = require('express');
+const db = require('./database');
 
 const app = express();
 
 app.get('/', function(req, res){
-    res.send('hello world!');
+    db.select().from('users').orderBy('id').then(function(data){
+        console.log(data);
+    }).catch(function(err){
+        console.log(err);
+    });
 });
 
 app.listen('3000');
