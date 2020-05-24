@@ -15,7 +15,15 @@ router.post('/', function(req, res){
         res.send(data);
     }).catch(function(err){
         console.log(err);
-    });;    
+    });    
+});
+
+router.patch('/:id', function(req, res){
+    db('users').where({ id: req.params.id }).update(req.body).returning('*').then(function(data){
+        res.send(data);
+    }).catch(function(err){
+        console.log(err);
+    });
 });
 
 module.exports = router; 
