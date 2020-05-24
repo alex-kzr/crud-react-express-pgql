@@ -14,3 +14,6 @@ GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO users_db_admin;
 \i <file-path>/staging.sql
 
 npm i --save body-parser
+
+create-react-app client
+npm i --save-dev concurrently

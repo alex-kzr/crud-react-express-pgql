@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +15,8 @@
     "express": "^4.17.1",
     "knex": "^0.21.1",
     "pg": "^8.2.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0"
   }
 }
