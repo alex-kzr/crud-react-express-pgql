@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require('../../database');
 
 router.get('/', function(req, res){
-    db.select().from('users').then(function(data){
+    db.select().from('users').orderBy('id').then(function(data){
         res.send(data);
     }).catch(function(err){
         console.log(err);
