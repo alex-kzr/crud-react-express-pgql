@@ -17,3 +17,5 @@ npm i --save body-parser
 
 create-react-app client
 npm i --save-dev concurrently
+
+npm i -save http-proxy-middleware // run in client directory
