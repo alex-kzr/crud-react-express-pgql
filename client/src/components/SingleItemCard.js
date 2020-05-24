@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SingleItemCardElements from './SingleItemCardElements';
+import EditItem from './EditItem';
 
 class SingleItemCard extends Component {
     constructor(props){
@@ -22,7 +23,7 @@ class SingleItemCard extends Component {
         const {fullName, phone} = this.state;
         if(this.state.editing){
             return(
-                <h3>Editing ...</h3>
+                <EditItem />
             );
         }
         return(
