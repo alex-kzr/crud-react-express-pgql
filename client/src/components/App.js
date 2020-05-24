@@ -1,12 +1,13 @@
 import React from 'react';
 import TopNav from './TopNav';
+import ItemsBody from './ItemsBody';
 
 function App() {
   return (
     <div>
       <TopNav />
       <div className="container">
-        <p>ItemsBody</p>
+        <ItemsBody />
       </div>
     </div>
   );
