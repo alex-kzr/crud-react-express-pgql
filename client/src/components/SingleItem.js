@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import SingleItemCard from './SingleItemCard';
 
 class SingleItem extends Component {
     constructor(props){
@@ -28,7 +29,7 @@ class SingleItem extends Component {
             );
         }
         return(
-            <p>SingleItemCard</p>
+            <SingleItemCard />
         )
     }
 }
