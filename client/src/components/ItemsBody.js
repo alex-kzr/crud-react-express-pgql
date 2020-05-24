@@ -15,7 +15,6 @@ class ItemsBody extends Component {
 
     componentDidMount(){
         axios.get('/api/users').then(res => {
-            console.log(res);
             this.setState({
                 loading: false,
                 users: res.data
@@ -25,6 +24,13 @@ class ItemsBody extends Component {
         })
     }
     
+    renderUsers() {
+        return _.map(this.state.users, user => {
+            return(
+                <ItemListElement fullName={user.full_name} phone={user.phone} />
+            );
+        });
+    }
     
     render(){
         if(this.state.loading === true){
@@ -34,7 +40,7 @@ class ItemsBody extends Component {
         }
         return(
             <ItemsList>
-                <ItemListElement text={'Item list atlast!'} />
+                {this.renderUsers()}
             </ItemsList>
         );
     }    
