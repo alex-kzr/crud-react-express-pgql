@@ -22,14 +22,13 @@ class SingleItem extends Component {
     }
 
     render(){
-        console.log(this.state.user);
         if(this.state.loading){
             return(
                 <h3>Loading ...</h3>
             );
         }
         return(
-            <SingleItemCard />
+            <SingleItemCard fullName={this.state.user.full_name} phone={this.state.user.phone} />
         )
     }
 }
