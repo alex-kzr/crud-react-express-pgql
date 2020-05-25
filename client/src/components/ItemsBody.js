@@ -27,7 +27,7 @@ class ItemsBody extends Component {
     renderUsers() {
         return _.map(this.state.users, user => {
             return(
-                <ItemListElement fullName={user.full_name} phone={user.phone} />
+                <ItemListElement fullName={user.full_name} phone={user.phone} id={user.id}/>
             );
         });
     }

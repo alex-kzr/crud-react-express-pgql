@@ -1,10 +1,11 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
-const ItemListElement = ({fullName, phone}) => {
+const ItemListElement = ({fullName, phone, id}) => {
     return(
-        <li className="list-group-item mt-3">
+        <Link to={`/${id}`} className="list-group-item text-dark mt-3">
             {fullName} | {phone}
-        </li>
+        </Link>
     );
 }
 
