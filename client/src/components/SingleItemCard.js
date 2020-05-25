@@ -35,7 +35,7 @@ class SingleItemCard extends Component {
             );
         }
         return(
-            <SingleItemCardElements fullName={fullName} phone={phone} onEdit={this.onEdit}/>
+            <SingleItemCardElements fullName={fullName} phone={phone} onEdit={this.onEdit} id={this.props.id}/>
         );
     }
 }
