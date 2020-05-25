@@ -11,6 +11,7 @@ class SingleItemCard extends Component {
             phone: props.phone
         };
         this.onEdit = this.onEdit.bind(this);
+        this.updateState = this.updateState.bind(this);
     }
 
     onEdit(){
@@ -19,11 +20,18 @@ class SingleItemCard extends Component {
         });
     }
 
+    updateState(fullName, phone){
+        this.setState({
+            fullName: fullName,
+            phone: phone
+        });
+    }
+
     render(){
         const {fullName, phone} = this.state;
         if(this.state.editing){
             return(
-                <EditItem fullName = {fullName} phone={phone} onCancel={this.onEdit}/>
+                <EditItem fullName = {fullName} phone={phone} toggleEdit={this.onEdit} id={this.props.id} updateState={this.updateState}/>
             );
         }
         return(

@@ -28,7 +28,7 @@ class SingleItem extends Component {
             );
         }
         return(
-            <SingleItemCard fullName={this.state.user.full_name} phone={this.state.user.phone} />
+            <SingleItemCard fullName={this.state.user.full_name} phone={this.state.user.phone} id={this.state.user.id}/>
         )
     }
 }

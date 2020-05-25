@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class EditItem extends Component{
     constructor(props){
@@ -8,6 +9,7 @@ class EditItem extends Component{
             phone: props.phone || ''
         };
         this.onChangeItem = this.onChangeItem.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     onChangeItem(event){
@@ -18,10 +20,27 @@ class EditItem extends Component{
         });
     }
 
+    handleSubmit(event){
+        event.preventDefault();
+        const { fullName, phone } = this.state;
+        const { id } = this.props;
+        if(id){
+            axios.put(`/api/users/${id}`, {
+                full_name: fullName,
+                phone: phone
+            }).then(() => {
+                this.props.updateState(fullName, phone);
+                this.props.toggleEdit();
+            });
+        }else{
+            // new item
+        }
+    }
+
     render(){
         const { fullName, phone } = this.state;
         return (
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
                     <label hrmlFor="fullName">Full name</label>
                     <input name="fullName" type="text" className="form-control" id="fullName" value={fullName} onChange={this.onChangeItem}/>
@@ -31,7 +50,7 @@ class EditItem extends Component{
                     <input name="phone" type="text" className="form-control" id="phone" value={phone} onChange={this.onChangeItem}/>
                 </div>                      
                 <div className="d-flex justify-content-start align-items-center mt-5">
-                    <button type="button" className="btn btn-outline-danger mr-4" onClick={this.props.onCancel}>Cancel</button>
+                    <button type="button" className="btn btn-outline-danger mr-4" onClick={this.props.toggleEdit}>Cancel</button>
                     <button type="submit" className="btn btn-outline-dark">Submit</button>
                 </div>                
             </form>
