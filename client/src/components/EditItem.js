@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
 class EditItem extends Component{
     constructor(props){
@@ -23,7 +24,7 @@ class EditItem extends Component{
     handleSubmit(event){
         event.preventDefault();
         const { fullName, phone } = this.state;
-        const { id } = this.props;
+        const { id, history } = this.props;
         if(id){
             axios.put(`/api/users/${id}`, {
                 full_name: fullName,
@@ -33,7 +34,9 @@ class EditItem extends Component{
                 this.props.toggleEdit();
             });
         }else{
-            // new item
+            axios.post('/api/users', {full_name: fullName, phone: phone}).then(() => {
+                history.push('/');
+            });
         }
     }
 
@@ -42,11 +45,11 @@ class EditItem extends Component{
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                    <label hrmlFor="fullName">Full name</label>
+                    <label hrmlfor="fullName">Full name</label>
                     <input name="fullName" type="text" className="form-control" id="fullName" value={fullName} onChange={this.onChangeItem}/>
                 </div>
                 <div className="form-group">
-                    <label hrmlFor="phone">Phone</label>
+                    <label hrmlfor="phone">Phone</label>
                     <input name="phone" type="text" className="form-control" id="phone" value={phone} onChange={this.onChangeItem}/>
                 </div>                      
                 <div className="d-flex justify-content-start align-items-center mt-5">
@@ -58,4 +61,4 @@ class EditItem extends Component{
     }
 }
 
-export default EditItem;
+export default withRouter(EditItem);
